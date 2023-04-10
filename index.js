@@ -1,5 +1,18 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const numIndices = {};
+
+  for (let i = 0; i < array.length; i++) {
+    const num = array[i];
+    const complement = target - num;
+
+    if (numIndices[complement] !== undefined) {
+      return true;
+    }
+
+    numIndices[num] = i;
+  }
+
+  return false;
 }
 
 /* 
